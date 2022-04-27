@@ -16,8 +16,6 @@ public class WelcomePage extends BasePage
     private WebElement loginButton;
     @FindBy(css = ".tools .account-management li:nth-child(1)")
     private WebElement welcomeLabel;
-    @FindBy(css = "#global-viewport")
-    private WebElement globalViewport;
 
     public WelcomePage(WebDriver webDriver, String url) {
         super(webDriver);
@@ -49,9 +47,5 @@ public class WelcomePage extends BasePage
         return this.welcomeLabel.getText();
     }
 
-    public void waitForGlobalViewPort()
-    {
-        waitToVisibility(globalViewport);
-    }
 
 }

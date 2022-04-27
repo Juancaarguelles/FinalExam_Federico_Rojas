@@ -9,14 +9,12 @@ import pages.outside.WelcomePage;
 public class TestLogin extends TestBase
 {
     private UserPage userPage;
-
-
-    @Test(priority = 0)
+    @Test
     public void login()
     {
         this.getWelcomePage().goToOptions();
         LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester1@yopmail.com", "12345qwerty");
+        userPage = loginPage.doLogin("tester1@yopmail.com", "1234qwerty");
         userPage.goToProfileOptions();
         Assert.assertTrue(!userPage.getWelcomeLabel().equals("Welcome!"), "He hasn't logged in");
         //this.getListener().onTestSuccess();

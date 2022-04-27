@@ -9,22 +9,27 @@ public class TestBase
     private WelcomePage welcomePage;
     private Listener listener;
 
-    @BeforeSuite
-    @Parameters({"chrome-browser"})
-    public void beforeSuite(String chrome)
+    @BeforeTest
+    @Parameters("chrome-browser")
+    public void beforeTest(String chrome)
     {
         this.driver = new Driver(chrome);
-        this.driver.getDriver().manage().window().maximize();
-        this.listener = new Listener();
     }
 
-    @BeforeTest
-    @Parameters("url")
-    public void beforeTest(String url)
+    @BeforeClass
+    @Parameters({"chrome-browser","url"})
+    public void beforeTest(String chrome, String url)
     {
-        System.out.println("Before Test");
-        this.welcomePage = new WelcomePage(this.driver.getDriver(), url);
+        this.getDriver().getDriver().manage().window().maximize();
+        this.welcomePage = new WelcomePage(this.getDriver().getDriver(), url);
+        System.out.println("Before class");
     }
+
+     @AfterClass
+     public void afterClass()
+     {
+         this.welcomePage.dispose();
+     }
 
     @AfterTest
     public void afterTest()

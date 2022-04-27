@@ -15,7 +15,7 @@ public class TestLogOut extends TestBase
         System.out.println("before method");
         this.getWelcomePage().goToOptions();
         LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester1@yopmail.com", "12345qwerty");
+        userPage = loginPage.doLogin("tester1@yopmail.com", "1234qwerty");
     }
 
     @Test
@@ -24,7 +24,6 @@ public class TestLogOut extends TestBase
     {
         this.userPage.goToProfileOptions();
         WelcomePage welcomePage = this.userPage.doLogout(url);
-        welcomePage.waitForGlobalViewPort();
         welcomePage.goToOptions();
         System.out.println(welcomePage.getWelcomeLabel());
         Assert.assertTrue(welcomePage.getWelcomeLabel().equals("Welcome!"), "He hasn't logout");
