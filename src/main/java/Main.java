@@ -1,5 +1,5 @@
 import pages.outside.WelcomePage;
-import utils.Driver;
+import utils.driver.Driver;
 
 public class Main
 {

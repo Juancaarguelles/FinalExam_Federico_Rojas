@@ -11,6 +11,8 @@ public class UserPage extends BasePage
 
     @FindBy(css = "#global-user-trigger")
     private WebElement accessButton;
+    @FindBy(css = ".tools .account-management li:nth-child(9)>a")
+    private WebElement logoutButton;
 
     public UserPage(WebDriver webDriver) {
         super(webDriver);
@@ -21,6 +23,12 @@ public class UserPage extends BasePage
         this.waitToVisibility(accessButton);
         Actions action = new Actions(this.getDriver());
         action.moveToElement(accessButton).perform();
-        System.out.println("done by now");
+    }
+
+    public void doLogout()
+    {
+        this.waitToBeClickeable(logoutButton);
+        this.logoutButton.click();
+        System.out.println("done until here!");
     }
 }

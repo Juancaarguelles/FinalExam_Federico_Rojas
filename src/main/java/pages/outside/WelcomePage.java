@@ -19,11 +19,16 @@ public class WelcomePage extends BasePage
         this.getDriver().get(url);
     }
 
-    public LoginPage goToLogin()
+    public void goToOptions()
     {
         this.waitToVisibility(accessButton);
         Actions action = new Actions(this.getDriver());
         action.moveToElement(accessButton).perform();
+    }
+
+    public LoginPage goToLogin()
+    {
+        this.waitToBeClickeable(loginButton);
         this.loginButton.click();
         return new LoginPage(this.getDriver());
     }
