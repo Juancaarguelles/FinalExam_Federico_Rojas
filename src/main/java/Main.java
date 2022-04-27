@@ -1,4 +1,4 @@
-import pages.InitialPage;
+import pages.outside.InitialPage;
 import utils.Driver;
 
 public class Main
@@ -9,6 +9,6 @@ public class Main
         driver.getDriver().manage().window().maximize();
         InitialPage initialPage = new InitialPage(driver.getDriver(), url);
 
-        initialPage.goToFirstMenu();
+        initialPage.goToLogin();
     }
 }

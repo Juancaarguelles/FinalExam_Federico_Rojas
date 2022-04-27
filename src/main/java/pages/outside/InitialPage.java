@@ -1,9 +1,10 @@
-package pages;
+package pages.outside;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import pages.BasePage;
 
 public class InitialPage extends BasePage
 {
@@ -18,12 +19,13 @@ public class InitialPage extends BasePage
         this.getDriver().get(url);
     }
 
-    public void goToFirstMenu()
+    public LoginPage goToLogin()
     {
         this.waitToVisibility(accessButton);
         Actions action = new Actions(this.getDriver());
         action.moveToElement(accessButton).perform();
         this.loginButton.click();
+        return new LoginPage(this.getDriver());
     }
 
 }

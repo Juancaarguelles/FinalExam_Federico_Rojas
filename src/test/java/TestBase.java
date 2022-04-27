@@ -1,5 +1,5 @@
 import org.testng.annotations.*;
-import pages.InitialPage;
+import pages.outside.InitialPage;
 import utils.Driver;
 
 public class TestBase

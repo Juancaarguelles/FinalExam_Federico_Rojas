@@ -1,7 +1,5 @@
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pages.InitialPage;
+import pages.outside.LoginPage;
 
 public class TestSuite extends TestBase
 {
@@ -9,7 +7,8 @@ public class TestSuite extends TestBase
     @Test(priority = 0)
     public void login()
     {
-        getInitialPage().goToFirstMenu();
+        LoginPage loginPage = getInitialPage().goToLogin();
+        loginPage.doLogin("tester1@yopmail.com", "12345qwerty");
         System.out.println("Im here");
     }
 }
