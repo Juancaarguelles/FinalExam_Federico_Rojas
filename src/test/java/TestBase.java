@@ -1,13 +1,11 @@
 import org.testng.annotations.*;
 import pages.outside.WelcomePage;
 import utils.driver.Driver;
-import utils.listener.Listener;
 
 public class TestBase
 {
     private Driver driver;
     private WelcomePage welcomePage;
-    private Listener listener;
 
     @BeforeTest
     @Parameters("chrome-browser")
@@ -25,16 +23,11 @@ public class TestBase
         System.out.println("Before class");
     }
 
-     @AfterClass
-     public void afterClass()
-     {
-         this.welcomePage.dispose();
-     }
 
     @AfterTest
     public void afterTest()
     {
-        //this.initialPage.dispose();
+        //this.welcomePage.dispose();
     }
 
     public Driver getDriver()
@@ -45,11 +38,6 @@ public class TestBase
     public WelcomePage getWelcomePage()
     {
         return this.welcomePage;
-    }
-
-    public Listener getListener()
-    {
-        return this.listener;
     }
 
 }

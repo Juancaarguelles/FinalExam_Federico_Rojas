@@ -1,3 +1,5 @@
+import pages.inside.DeleteProfilePage;
+import pages.inside.EspnProfilePage;
 import pages.inside.UserPage;
 import pages.outside.LoginPage;
 import pages.outside.WelcomePage;
@@ -22,13 +24,9 @@ public class Main
         main.welcomePage.goToOptions();
         System.out.println("Before logging in: "+main.welcomePage.getWelcomeLabel());
         LoginPage lp = main.welcomePage.goToLogin();
-        UserPage up = lp.doLogin("tester1@yopmail.com", "12345qwerty");
+        UserPage up = lp.doLogin("tester1@yopmail.com", "123qwerty");
         up.goToProfileOptions();
-        System.out.println("After loggin in: "+up.getWelcomeLabel());
-        WelcomePage w = up.doLogout(main.url);
-        w.goToOptions();
-        System.out.println(w.getWelcomeLabel());
-
-
+        EspnProfilePage espnProfilePage = up.goToEspnProfile();
+        espnProfilePage.findDeletebutton();
     }
 }

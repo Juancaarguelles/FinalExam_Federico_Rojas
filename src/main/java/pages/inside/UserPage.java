@@ -15,8 +15,11 @@ public class UserPage extends BasePage
     private WebElement accessButton;
     @FindBy(css = ".tools .account-management li:nth-child(9)>a")
     private WebElement logoutButton;
+    @FindBy(css = ".tools .account-management li:nth-child(5)>a")
+    private WebElement espnProfileButton;
     @FindBy(css = ".tools .account-management li:nth-child(1)")
     private WebElement welcomeLabel;
+
 
     public UserPage(WebDriver webDriver) {
         super(webDriver);
@@ -27,6 +30,13 @@ public class UserPage extends BasePage
         this.waitToVisibility(accessButton);
         Actions action = new Actions(this.getDriver());
         action.moveToElement(accessButton).perform();
+    }
+
+    public EspnProfilePage goToEspnProfile()
+    {
+        this.waitToVisibility(espnProfileButton);
+        this.espnProfileButton.click();
+        return new EspnProfilePage(this.getDriver());
     }
 
     public WelcomePage doLogout(String url) {
