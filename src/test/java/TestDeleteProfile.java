@@ -8,13 +8,14 @@ import pages.outside.LoginPage;
 public class TestDeleteProfile extends TestBase
 {
     private UserPage userPage;
+
     @BeforeMethod
     public void beforeMethodLogIn()
     {
         System.out.println("before method");
         this.getWelcomePage().goToOptions();
         LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester1@yopmail.com", "123qwerty");
+        userPage = loginPage.doLogin("tester2@yopmail.com", "12345qwerty");
     }
 
     @Test
@@ -25,6 +26,6 @@ public class TestDeleteProfile extends TestBase
         DeleteProfilePage dp = espnProfilePage.goToDeleteProfile();
         System.out.println(dp.getTitle());
         dp.deleteAccount();
-        
+        log.info("DELETE ACCOUNT TEST FINISHED");
     }
 }

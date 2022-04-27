@@ -1,4 +1,5 @@
 import org.testng.annotations.*;
+import org.testng.log4testng.Logger;
 import pages.outside.WelcomePage;
 import utils.driver.Driver;
 
@@ -6,6 +7,7 @@ public class TestBase
 {
     private Driver driver;
     private WelcomePage welcomePage;
+    protected Logger log = Logger.getLogger(TestBase.class);
 
     @BeforeTest
     @Parameters("chrome-browser")
@@ -23,11 +25,10 @@ public class TestBase
         System.out.println("Before class");
     }
 
-
     @AfterTest
     public void afterTest()
     {
-        //this.welcomePage.dispose();
+        this.welcomePage.dispose();
     }
 
     public Driver getDriver()
@@ -39,5 +40,4 @@ public class TestBase
     {
         return this.welcomePage;
     }
-
 }

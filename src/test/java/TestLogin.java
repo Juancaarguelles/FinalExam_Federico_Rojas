@@ -1,3 +1,4 @@
+import org.apache.commons.logging.Log;
 import org.apache.http.util.Asserts;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -14,11 +15,11 @@ public class TestLogin extends TestBase
     {
         this.getWelcomePage().goToOptions();
         LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester1@yopmail.com", "1234qwerty");
+        userPage = loginPage.doLogin("tester2@yopmail.com", "12345qwerty");
         userPage.goToProfileOptions();
         Assert.assertTrue(!userPage.getWelcomeLabel().equals("Welcome!"), "He hasn't logged in");
         //this.getListener().onTestSuccess();
-        System.out.println("Test succesful");
+        log.info("USER HAS LOGGED IN");
     }
 
 
@@ -28,5 +29,6 @@ public class TestLogin extends TestBase
     {
         userPage.goToProfileOptions();
         userPage.doLogout(url);
+        log.info("LOGIN TEST FINISHED");
     }
 }

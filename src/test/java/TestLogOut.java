@@ -12,10 +12,9 @@ public class TestLogOut extends TestBase
     @BeforeMethod
     public void beforeMethodLogIn()
     {
-        System.out.println("before method");
         this.getWelcomePage().goToOptions();
         LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester1@yopmail.com", "1234qwerty");
+        userPage = loginPage.doLogin("tester2@yopmail.com", "12345qwerty");
     }
 
     @Test
@@ -27,5 +26,6 @@ public class TestLogOut extends TestBase
         welcomePage.goToOptions();
         System.out.println(welcomePage.getWelcomeLabel());
         Assert.assertTrue(welcomePage.getWelcomeLabel().equals("Welcome!"), "He hasn't logout");
+        log.info("LOG OUT TEST FINISHED");
     }
 }
