@@ -7,7 +7,7 @@
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"></parameter>
     <test name="espn test">
         <classes>
-           <class name="TestSuite"></class>
+           <class name="TestLogin"></class>
         </classes>
     </test>
 </suite>

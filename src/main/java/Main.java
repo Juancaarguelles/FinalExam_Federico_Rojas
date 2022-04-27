@@ -1,4 +1,4 @@
-import pages.outside.InitialPage;
+import pages.outside.WelcomePage;
 import utils.Driver;
 
 public class Main
@@ -7,7 +7,7 @@ public class Main
         String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
         Driver driver = new Driver("chrome");
         driver.getDriver().manage().window().maximize();
-        InitialPage initialPage = new InitialPage(driver.getDriver(), url);
+        WelcomePage initialPage = new WelcomePage(driver.getDriver(), url);
 
         initialPage.goToLogin();
     }

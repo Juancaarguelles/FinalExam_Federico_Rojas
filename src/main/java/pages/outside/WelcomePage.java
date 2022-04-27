@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
-public class InitialPage extends BasePage
+public class WelcomePage extends BasePage
 {
 
     @FindBy(css = "#global-user-trigger")
@@ -14,7 +14,7 @@ public class InitialPage extends BasePage
     @FindBy(css = ".tools .account-management li:nth-child(7)>a")
     private WebElement loginButton;
 
-    public InitialPage(WebDriver webDriver, String url) {
+    public WelcomePage(WebDriver webDriver, String url) {
         super(webDriver);
         this.getDriver().get(url);
     }

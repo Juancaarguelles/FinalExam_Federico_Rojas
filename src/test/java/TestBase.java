@@ -1,19 +1,17 @@
 import org.testng.annotations.*;
-import pages.outside.InitialPage;
+import pages.outside.WelcomePage;
 import utils.Driver;
 
 public class TestBase
 {
     private Driver driver;
-    private  InitialPage initialPage;
 
     @BeforeTest
-    @Parameters({"chrome-browser", "url"})
-    public void beforeTest(String chrome, String url)
+    @Parameters({"chrome-browser"})
+    public void beforeTest(String chrome)
     {
         this.driver = new Driver(chrome);
         this.driver.getDriver().manage().window().maximize();
-        this.initialPage = new InitialPage(this.driver.getDriver(), url);
     }
 
 
@@ -23,11 +21,6 @@ public class TestBase
         //this.initialPage.dispose();
     }
 
-
-    public InitialPage getInitialPage()
-    {
-        return this.initialPage;
-    }
 
     public Driver getDriver()
     {
