@@ -13,6 +13,8 @@ public class WelcomePage extends BasePage
     private WebElement accessButton;
     @FindBy(css = ".tools .account-management li:nth-child(7)>a")
     private WebElement loginButton;
+    @FindBy(css = ".tools .account-management li:nth-child(1)")
+    private WebElement welcomeLabel;
 
     public WelcomePage(WebDriver webDriver, String url) {
         super(webDriver);
@@ -31,6 +33,11 @@ public class WelcomePage extends BasePage
         this.waitToBeClickeable(loginButton);
         this.loginButton.click();
         return new LoginPage(this.getDriver());
+    }
+
+    public String getWelcomeText()
+    {
+        return this.welcomeLabel.getText();
     }
 
 }
