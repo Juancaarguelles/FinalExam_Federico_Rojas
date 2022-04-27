@@ -21,15 +21,14 @@ public class TestLogin extends TestBase
         Assert.assertTrue(!userPage.getWelcomeLabel().equals("Welcome!"), "He hasn't logged in");
         //this.getListener().onTestSuccess();
         System.out.println("Test succesful");
-
     }
 
 
     @AfterMethod
-    public void afterMethodLogOut()
+    @Parameters({"url"})
+    public void afterMethodLogOut(String url)
     {
         userPage.goToProfileOptions();
-        userPage.doLogout();
-        System.out.println("after method");
+        userPage.doLogout(url);
     }
 }

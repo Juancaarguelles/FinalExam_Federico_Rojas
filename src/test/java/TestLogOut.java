@@ -1,7 +1,10 @@
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.inside.UserPage;
 import pages.outside.LoginPage;
+import pages.outside.WelcomePage;
 
 public class TestLogOut extends TestBase
 {
@@ -16,9 +19,14 @@ public class TestLogOut extends TestBase
     }
 
     @Test
-    public void logout()
+    @Parameters({"url"})
+    public void logout(String url)
     {
         this.userPage.goToProfileOptions();
-        this.userPage.doLogout();
+        WelcomePage welcomePage = this.userPage.doLogout(url);
+        welcomePage.waitForGlobalViewPort();
+        welcomePage.goToOptions();
+        System.out.println(welcomePage.getWelcomeLabel());
+        Assert.assertTrue(welcomePage.getWelcomeLabel().equals("Welcome!"), "He hasn't logout");
     }
 }

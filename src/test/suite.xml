@@ -5,9 +5,14 @@
     <parameter name="chrome-browser" value="chrome"></parameter>
     <parameter name="firefox-browser" value="1234"></parameter>
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"></parameter>
-    <test name="espn test login">
+    <!--<test name="espn test login">
         <classes>
            <class name="TestLogin"></class>
+        </classes>
+    </test>-->
+    <test name="espn test logout">
+        <classes>
+            <class name="TestLogOut"></class>
         </classes>
     </test>
 </suite>

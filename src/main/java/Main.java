@@ -20,12 +20,15 @@ public class Main
     public static void main(String[] args) {
         Main main = new Main();
         main.welcomePage.goToOptions();
-        System.out.println("Before logging in: "+main.welcomePage.getWelcomeText());
+        System.out.println("Before logging in: "+main.welcomePage.getWelcomeLabel());
         LoginPage lp = main.welcomePage.goToLogin();
         UserPage up = lp.doLogin("tester1@yopmail.com", "12345qwerty");
         up.goToProfileOptions();
         System.out.println("After loggin in: "+up.getWelcomeLabel());
-        up.doLogout();
+        WelcomePage w = up.doLogout(main.url);
+        w.goToOptions();
+        System.out.println(w.getWelcomeLabel());
+
 
     }
 }

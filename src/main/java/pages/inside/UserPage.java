@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
+import pages.outside.WelcomePage;
 
 public class UserPage extends BasePage
 {
@@ -28,11 +29,10 @@ public class UserPage extends BasePage
         action.moveToElement(accessButton).perform();
     }
 
-    public void doLogout()
-    {
+    public WelcomePage doLogout(String url) {
         this.waitToBeClickeable(logoutButton);
         this.logoutButton.click();
-        System.out.println("done until here!");
+        return new WelcomePage(this.getDriver(), url);
     }
 
     public String getWelcomeLabel()

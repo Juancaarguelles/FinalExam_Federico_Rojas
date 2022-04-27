@@ -1,5 +1,6 @@
 package pages.outside;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,11 +16,19 @@ public class WelcomePage extends BasePage
     private WebElement loginButton;
     @FindBy(css = ".tools .account-management li:nth-child(1)")
     private WebElement welcomeLabel;
+    @FindBy(css = "#global-viewport")
+    private WebElement globalViewport;
 
     public WelcomePage(WebDriver webDriver, String url) {
         super(webDriver);
         this.getDriver().get(url);
     }
+
+
+    public WelcomePage(WebDriver webDriver) {
+        super(webDriver);
+    }
+
 
     public void goToOptions()
     {
@@ -35,9 +44,14 @@ public class WelcomePage extends BasePage
         return new LoginPage(this.getDriver());
     }
 
-    public String getWelcomeText()
+    public String getWelcomeLabel()
     {
         return this.welcomeLabel.getText();
+    }
+
+    public void waitForGlobalViewPort()
+    {
+        waitToVisibility(globalViewport);
     }
 
 }
