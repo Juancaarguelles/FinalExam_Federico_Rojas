@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
+import pages.inside.UserPage;
 
 public class LoginPage extends BasePage
 {
@@ -19,7 +20,7 @@ public class LoginPage extends BasePage
         this.getDriver().switchTo().frame("disneyid-iframe");
     }
 
-    public void doLogin(String email, String password)
+    public UserPage doLogin(String email, String password)
     {
         this.waitToVisibility(emailInput);
         this.emailInput.click();
@@ -29,6 +30,7 @@ public class LoginPage extends BasePage
         this.passwordInput.sendKeys(password);
 
         this.submitButton.click();
+        return new UserPage(this.getDriver());
 
     }
 }

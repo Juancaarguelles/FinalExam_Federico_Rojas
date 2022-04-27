@@ -1,4 +1,5 @@
 import org.testng.annotations.*;
+import pages.inside.UserPage;
 import pages.outside.LoginPage;
 import pages.outside.WelcomePage;
 
@@ -18,7 +19,8 @@ public class TestLogin extends TestBase
     public void login()
     {
         LoginPage loginPage = welcomePage.goToLogin();
-        loginPage.doLogin("tester1@yopmail.com", "12345qwerty");
+        UserPage userPage = loginPage.doLogin("tester1@yopmail.com", "12345qwerty");
+        userPage.goToProfileOptions();
     }
 
     @Test(priority = 1)
