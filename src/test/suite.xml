@@ -1,19 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="example test suite" verbose="1">
-    <!--
-    <parameter name="username" value="admin"></parameter>
-    <parameter name="password" value="1234"></parameter>
-    <test name="first point">
-        <parameter name="friend" value="ironman"></parameter>
+
+    <parameter name="chrome-browser" value="chrome"></parameter>
+    <parameter name="firefox-browser" value="1234"></parameter>
+    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"></parameter>
+    <test name="espn test">
         <classes>
-            <class name="com.automatio"></class>
+           <class name="TestSuite"></class>
         </classes>
     </test>
-
-    <test name="second point">
-        <classes>
-            <class name="com.globant.SecondPoint"></class>
-        </classes>
-    </test> -->
 </suite>
