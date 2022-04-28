@@ -5,28 +5,30 @@ import org.testng.annotations.Test;
 import pages.inside.UserPage;
 import pages.outside.AccessPage;
 import pages.outside.WelcomePage;
+import utils.data.Data;
 
 public class TestLogOut extends TestBase
 {
     private UserPage userPage;
     @BeforeMethod
-    @Parameters({"email", "password"})
-    public void beforeMethodLogIn(String email, String password)
+    @Parameters("url")
+    public void beforeMethodLogIn(String url)
     {
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin(email, password);
+        userPage = accessPage.doLogin(Data.email, Data.password);
     }
 
     @Test
-    @Parameters({"url"})
-    public void logout(String url)
+    @Parameters()
+    public void logout()
     {
         this.userPage.goToProfileOptions();
-        WelcomePage welcomePage = this.userPage.doLogout(url);
-        welcomePage.goToOptions();
-        System.out.println(welcomePage.getWelcomeLabel());
-        Assert.assertTrue(welcomePage.getWelcomeLabel().equals("Welcome!"), "He hasn't logout");
+        this.setWelcomePage( this.userPage.doLogout());
+        this.getDriver().getDriver().navigate().refresh();
+        this.getWelcomePage().goToOptions();
+        System.out.println(this.getWelcomePage().getWelcomeLabel());
+        Assert.assertTrue(this.getWelcomePage().getWelcomeLabel().equals("Welcome!"), "He hasn't logout");
         log.info("LOG OUT TEST FINISHED");
     }
 }

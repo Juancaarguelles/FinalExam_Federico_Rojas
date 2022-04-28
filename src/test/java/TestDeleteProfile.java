@@ -4,6 +4,7 @@ import pages.inside.DeleteProfilePage;
 import pages.inside.EspnProfilePage;
 import pages.inside.UserPage;
 import pages.outside.AccessPage;
+import utils.data.Data;
 
 public class TestDeleteProfile extends TestBase
 {
@@ -12,10 +13,9 @@ public class TestDeleteProfile extends TestBase
     @BeforeMethod
     public void beforeMethodLogIn()
     {
-        System.out.println("before method");
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin("test1master@yopmail.com", "12345qwerty");
+        userPage = accessPage.doLogin(Data.email, Data.password);
     }
 
     @Test

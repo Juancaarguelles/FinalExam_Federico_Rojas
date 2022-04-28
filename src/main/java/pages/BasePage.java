@@ -23,6 +23,8 @@ public class BasePage
         this.wait = new WebDriverWait(this.driver, 20);
     }
 
+
+
     public WebDriver getDriver()
     {
         return this.driver;
@@ -31,8 +33,9 @@ public class BasePage
     public void dispose()
     {
         if(this.driver != null)
-            this.driver.close();
+            this.driver.quit();
     }
+
 
     public WebDriverWait getWait()
     {

@@ -29,6 +29,7 @@ public class AccessPage extends BasePage
         this.emailInput.sendKeys(email);
 
         this.passwordInput.click();
+        System.out.println(password);
         this.passwordInput.sendKeys(password);
 
         this.loginButton.click();

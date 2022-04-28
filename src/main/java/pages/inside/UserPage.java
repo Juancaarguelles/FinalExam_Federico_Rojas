@@ -39,10 +39,10 @@ public class UserPage extends BasePage
         return new EspnProfilePage(this.getDriver());
     }
 
-    public WelcomePage doLogout(String url) {
+    public WelcomePage doLogout() {
         this.waitToBeClickeable(logoutButton);
         this.logoutButton.click();
-        return new WelcomePage(this.getDriver(), url);
+        return new WelcomePage(this.getDriver());
     }
 
     public String getWelcomeLabel()
