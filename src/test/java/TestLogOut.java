@@ -5,17 +5,18 @@ import org.testng.annotations.Test;
 import pages.inside.UserPage;
 import pages.outside.AccessPage;
 import pages.outside.WelcomePage;
+import utils.data.Data;
 
 public class TestLogOut extends TestBase
 {
     private UserPage userPage;
     @BeforeMethod
-    @Parameters({"email", "password"})
-    public void beforeMethodLogIn(String email, String password)
+    @Parameters("url")
+    public void beforeMethodLogIn(String url)
     {
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin(email, password);
+        userPage = accessPage.doLogin(Data.email, Data.password);
     }
 
     @Test

@@ -8,12 +8,11 @@ public class TestLogin extends TestBase
 {
     private UserPage userPage;
     @Test
-    @Parameters({"email","password"})
-    public void login(String email, String password)
+    public void login()
     {
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin(email, password);
+        userPage = accessPage.doLogin(Data.email, Data.password);
         userPage.goToProfileOptions();
         Assert.assertTrue(!userPage.getWelcomeLabel().equals("Welcome!"), "He hasn't logged in");
         log.info("USER HAS LOGGED IN");
@@ -24,7 +23,7 @@ public class TestLogin extends TestBase
     public void afterMethodLogOut(String url)
     {
         userPage.goToProfileOptions();
-        userPage.doLogout(url);
+        this.setWelcomePage(userPage.doLogout(url));
         log.info("LOGIN TEST FINISHED");
     }
 }

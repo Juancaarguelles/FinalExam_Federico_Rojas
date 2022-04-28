@@ -31,8 +31,9 @@ public class BasePage
     public void dispose()
     {
         if(this.driver != null)
-            this.driver.close();
+            this.driver.quit();
     }
+
 
     public WebDriverWait getWait()
     {
