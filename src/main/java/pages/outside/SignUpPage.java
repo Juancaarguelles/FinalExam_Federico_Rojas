@@ -23,6 +23,24 @@ public class SignUpPage extends BasePage
         super(webDriver);
     }
 
+    public void createProfile(String name, String lastName, String email, String password)
+    {
+        waitToVisibility(nameInput);
+        this.nameInput.click();
+        this.nameInput.sendKeys(name);
+
+        this.lastNameInput.click();
+        this.lastNameInput.sendKeys(lastName);
+
+        this.emailInput.click();
+        this.emailInput.sendKeys(email);
+
+        this.passwordInput.click();
+        this.passwordInput.sendKeys(password);
+
+        this.waitToBeClickeable(this.signUpButton);
+        this.signUpButton.click();
+    }
 
     public void getInputFields()
     {

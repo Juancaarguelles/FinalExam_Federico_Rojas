@@ -10,11 +10,12 @@ public class TestLogOut extends TestBase
 {
     private UserPage userPage;
     @BeforeMethod
-    public void beforeMethodLogIn()
+    @Parameters({"email", "password"})
+    public void beforeMethodLogIn(String email, String password)
     {
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin("tester2@yopmail.com", "12345qwerty");
+        userPage = accessPage.doLogin(email, password);
     }
 
     @Test

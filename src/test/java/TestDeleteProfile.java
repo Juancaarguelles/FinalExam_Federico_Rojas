@@ -15,7 +15,7 @@ public class TestDeleteProfile extends TestBase
         System.out.println("before method");
         this.getWelcomePage().goToOptions();
         AccessPage accessPage = this.getWelcomePage().goToAccess();
-        userPage = accessPage.doLogin("tester2@yopmail.com", "12345qwerty");
+        userPage = accessPage.doLogin("test1master@yopmail.com", "12345qwerty");
     }
 
     @Test

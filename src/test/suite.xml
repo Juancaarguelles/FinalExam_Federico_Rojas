@@ -3,24 +3,30 @@
 <suite name="example test suite" verbose="1">
 
     <parameter name="chrome-browser" value="chrome"></parameter>
-    <parameter name="firefox-browser" value="1234"></parameter>
+    <parameter name="firefox-browser" value="firefox"></parameter>
     <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"></parameter>
-    <test name="espn test create Account">
+
+   <!-- <test name="espn test create Account">
         <classes>
             <class name="TestCreateProfile"></class>
         </classes>
-    </test>
-    <!--<test name="espn test login">
+    </test>-->
+    <test name="espn test login">
+        <parameter name="email" value="test1master@yopmail.com"></parameter>
+        <parameter name="password" value="12345qwerty"></parameter>
         <classes>
            <class name="TestLogin"></class>
         </classes>
     </test>
     <test name="espn test logout">
+
+        <parameter name="email" value="test2master@yopmail.com"></parameter>
+        <parameter name="password" value="12345qwerty"></parameter>
         <classes>
             <class name="TestLogOut"></class>
         </classes>
     </test>
-    <test name="espn test delete Account">
+    <!--<test name="espn test delete Account">
         <classes>
             <class name="TestDeleteProfile"></class>
         </classes>
