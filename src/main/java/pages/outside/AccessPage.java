@@ -6,16 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 import pages.inside.UserPage;
 
-public class LoginPage extends BasePage
+public class AccessPage extends BasePage
 {
     @FindBy(css = ".field-group .field-username-email .input-wrapper>input")
     private WebElement emailInput;
     @FindBy(css = ".field-group .field-password .input-wrapper>input")
     private WebElement passwordInput;
     @FindBy(css = ".touch-print-btn-group-wrapper .btn-submit")
-    private WebElement submitButton;
+    private WebElement loginButton;
+    @FindBy(css = "#did-ui .main .workflow-new .section-primary .btn-group-create-account>a")
+    private WebElement signUpButton;
 
-    public LoginPage(WebDriver webDriver) {
+    public AccessPage(WebDriver webDriver) {
         super(webDriver);
         this.getDriver().switchTo().frame("disneyid-iframe");
     }
@@ -29,8 +31,14 @@ public class LoginPage extends BasePage
         this.passwordInput.click();
         this.passwordInput.sendKeys(password);
 
-        this.submitButton.click();
+        this.loginButton.click();
         return new UserPage(this.getDriver());
+    }
 
+    public SignUpPage goToSignUp()
+    {
+        this.waitToVisibility(signUpButton);
+        this.signUpButton.click();
+        return new SignUpPage(this.getDriver());
     }
 }

@@ -28,7 +28,7 @@ public class TestBase
     @AfterTest
     public void afterTest()
     {
-        this.welcomePage.dispose();
+        //this.welcomePage.dispose();
     }
 
     public Driver getDriver()

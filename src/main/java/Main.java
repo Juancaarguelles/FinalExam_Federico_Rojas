@@ -1,7 +1,6 @@
-import pages.inside.DeleteProfilePage;
 import pages.inside.EspnProfilePage;
 import pages.inside.UserPage;
-import pages.outside.LoginPage;
+import pages.outside.AccessPage;
 import pages.outside.WelcomePage;
 import utils.driver.Driver;
 
@@ -23,7 +22,7 @@ public class Main
         Main main = new Main();
         main.welcomePage.goToOptions();
         System.out.println("Before logging in: "+main.welcomePage.getWelcomeLabel());
-        LoginPage lp = main.welcomePage.goToLogin();
+        AccessPage lp = main.welcomePage.goToAccess();
         UserPage up = lp.doLogin("tester1@yopmail.com", "123qwerty");
         up.goToProfileOptions();
         EspnProfilePage espnProfilePage = up.goToEspnProfile();

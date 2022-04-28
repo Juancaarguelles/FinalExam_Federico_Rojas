@@ -3,7 +3,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.inside.UserPage;
-import pages.outside.LoginPage;
+import pages.outside.AccessPage;
 import pages.outside.WelcomePage;
 
 public class TestLogOut extends TestBase
@@ -13,8 +13,8 @@ public class TestLogOut extends TestBase
     public void beforeMethodLogIn()
     {
         this.getWelcomePage().goToOptions();
-        LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester2@yopmail.com", "12345qwerty");
+        AccessPage accessPage = this.getWelcomePage().goToAccess();
+        userPage = accessPage.doLogin("tester2@yopmail.com", "12345qwerty");
     }
 
     @Test

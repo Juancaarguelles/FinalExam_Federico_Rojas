@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import pages.inside.DeleteProfilePage;
 import pages.inside.EspnProfilePage;
 import pages.inside.UserPage;
-import pages.outside.LoginPage;
+import pages.outside.AccessPage;
 
 public class TestDeleteProfile extends TestBase
 {
@@ -14,8 +14,8 @@ public class TestDeleteProfile extends TestBase
     {
         System.out.println("before method");
         this.getWelcomePage().goToOptions();
-        LoginPage loginPage = this.getWelcomePage().goToLogin();
-        userPage = loginPage.doLogin("tester2@yopmail.com", "12345qwerty");
+        AccessPage accessPage = this.getWelcomePage().goToAccess();
+        userPage = accessPage.doLogin("tester2@yopmail.com", "12345qwerty");
     }
 
     @Test

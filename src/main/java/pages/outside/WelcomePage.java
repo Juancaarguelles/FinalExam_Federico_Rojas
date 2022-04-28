@@ -1,6 +1,5 @@
 package pages.outside;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -35,11 +34,11 @@ public class WelcomePage extends BasePage
         action.moveToElement(accessButton).perform();
     }
 
-    public LoginPage goToLogin()
+    public AccessPage goToAccess()
     {
         this.waitToBeClickeable(loginButton);
         this.loginButton.click();
-        return new LoginPage(this.getDriver());
+        return new AccessPage(this.getDriver());
     }
 
     public String getWelcomeLabel()
